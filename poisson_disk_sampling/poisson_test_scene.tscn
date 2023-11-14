@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://be2p41ohtgoye"]
+
+[ext_resource type="Script" path="res://addons/poisson_disk_sampling/src/poisson_disk_sampling_node.gd" id="1_87iw0"]
+
+[node name="PoissonTestScene" type="Node2D"]
+
+[node name="PoissonDiskSampler2D" type="Node2D" parent="."]
+script = ExtResource("1_87iw0")
+min_dist = 50.0
+
+[node name="Polygon2D" type="Polygon2D" parent="PoissonDiskSampler2D"]
+polygon = PackedVector2Array(-89, -41, 329, -161, 1043, -91, 1216, 527, 1041, 1125, 84, 995, -367, 357)
