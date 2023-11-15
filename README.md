@@ -8,7 +8,7 @@ I created this after trying [udit's implementation](https://github.com/udit/pois
 ## Usage
 How to generate points for different shapes:
 ### Polygon
-```godot
+```GDScript
 var poisson_points = PoissonDiskSampler.generate_points(
         get_polygon_rect(polygon), # Polygon bounding rect.
         min_dist,
@@ -19,7 +19,7 @@ func _is_point_in_polygon(point: Vector2, polygon: Polygon2D) -> bool:
 	return Geometry2D.is_point_in_polygon(point, polygon.polygon)
 ```
 ### Circle
-```godot
+```GDScript
 var circle_rect = Rect2(Vector2(0.0, 0.0), Vector2(1000.0, 1000.0))
 var poisson_points = PoissonDiskSampler.generate_points(
         circle_rect,
@@ -28,8 +28,8 @@ var poisson_points = PoissonDiskSampler.generate_points(
         _is_point_in_circle.bind(circle_rect))
 
 func _is_point_in_polygon(point: Vector2, rect: Rect2) -> bool:
-	var radius = rect.size.x / 2.0
-	return point.distance_squared_to(rect.size / 2.0) <= radius * radius
+    var radius = rect.size.x / 2.0
+    return point.distance_squared_to(rect.size / 2.0) <= radius * radius
 ```
 ## To-Do
 * Right now for each point, we loop over all added points to check if it is valid. You're supposed to only check nearby points. Need to get that working.
