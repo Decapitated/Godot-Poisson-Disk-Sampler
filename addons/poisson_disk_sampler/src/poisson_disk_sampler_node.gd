@@ -3,13 +3,13 @@ class_name PoissonDiskSampler2D extends Node2D
 
 const point_res = preload("point.res")
 
-@export var points: Array[Vector2] = []
-@export var point_holder: Node2D
 @export var min_dist = 100.0:
-	set(value):
-		if value >= 0:
-			min_dist = value
+		set(value):
+			if value >= 0:
+				min_dist = value
 @export var max_attempts = 30
+
+var points: Array[Vector2]
 
 var generating = false
 var gen_thread: Thread
@@ -17,7 +17,7 @@ var gen_thread: Thread
 var polygon: Polygon2D
 
 func add_points():
-	point_holder = Node2D.new()
+	var point_holder = Node2D.new()
 	point_holder.name = "PointHolder"
 	point_holder.position = polygon.position
 	add_child(point_holder)
@@ -31,6 +31,7 @@ func add_points():
 
 func clear():
 	points = []
+	var point_holder = get_point_holder()
 	if point_holder != null:
 		remove_child(point_holder)
 		point_holder.free()
@@ -81,6 +82,9 @@ func get_polygon_rect(polygon: Polygon2D) -> Rect2:
 func get_polygons() -> Array:
 	return find_children("*", "Polygon2D", false)
 
+func get_point_holder() -> Node2D:
+	return find_child("PointHolder", false)
+
 func _is_valid(warnings: PackedStringArray = []) -> bool:
 	var polygons = get_polygons()
 	if polygons.is_empty():
@@ -93,3 +97,13 @@ func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = []
 	_is_valid(warnings)
 	return warnings
+
+func _get_property_list():
+	var properties = [
+		{
+			name = "points",
+			usage = PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY,
+			type = typeof(points),
+		}
+	]
+	return properties
