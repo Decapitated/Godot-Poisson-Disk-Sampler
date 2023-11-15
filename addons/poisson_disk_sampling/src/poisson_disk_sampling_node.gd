@@ -21,12 +21,12 @@ func add_points():
 	point_holder.name = "PointHolder"
 	point_holder.position = polygon.position
 	add_child(point_holder)
-	point_holder.owner = get_parent()
+	point_holder.owner = owner
 	for p in points:
 		var point = point_res.instantiate()
 		point.position = p
-		point_holder.add_child(point, true)
-		point.owner = get_parent()
+		point_holder.add_child(point)
+		point.owner = owner
 	generating = false
 
 func clear():

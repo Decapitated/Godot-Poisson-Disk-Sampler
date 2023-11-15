@@ -39,8 +39,8 @@ static func generate_points(bounds: Rect2, min_dist: float, attempts: int, _is_v
 
 static func get_random_start_point(bounds: Rect2) -> Vector2:
     return Vector2(
-        lerpf(bounds.position.x, bounds.end.x, randf()),
-        lerpf(bounds.position.y, bounds.end.y, randf()))
+            lerpf(bounds.position.x, bounds.end.x, randf()),
+            lerpf(bounds.position.y, bounds.end.y, randf()))
 
 static func insert_sample(grid: Dictionary, points: Array[Vector2], point: Vector2, cell_index: Vector2i) -> int:
     points.append(point)
