@@ -1,12 +1,82 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsluywjbs8oa"]
+[gd_scene load_steps=7 format=3 uid="uid://dsluywjbs8oa"]
 
 [ext_resource type="Script" path="res://addons/poisson_disk_sampler/src/poisson_disk_sampler_node.gd" id="1_ei2cw"]
+[ext_resource type="Script" path="res://addons/poisson_disk_sampler/src/points_animator.gd" id="3_q6mj4"]
+
+[sub_resource type="Animation" id="Animation_nrp3y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointsAnimator:index_scaled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vsff7"]
+resource_name = "filled"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointsAnimator:index_scaled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_o4otn"]
+resource_name = "loop"
+length = 17.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointsAnimator:index_scaled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 12, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1cut"]
+_data = {
+"RESET": SubResource("Animation_nrp3y"),
+"filled": SubResource("Animation_vsff7"),
+"loop": SubResource("Animation_o4otn")
+}
 
 [node name="PoissonTestScene" type="Node2D"]
 
 [node name="PoissonDiskSampler2D" type="Node2D" parent="."]
 script = ExtResource("1_ei2cw")
+min_dist = 10.0
 points = Array[Vector2]([])
 
 [node name="Polygon2D" type="Polygon2D" parent="PoissonDiskSampler2D"]
-polygon = PackedVector2Array(-89, -41, 329, -161, 1043, -91, 1216, 527, 1041, 1125, 84, 995, -367, 357)
+polygon = PackedVector2Array(0, 32, 0, 0, 32, 0, 32, -32, -32, -32, -32, 64, 96, 64, 96, -96, -96, -96, -96, 128, 160, 128, 160, -160, -160, -160, -160, 192, 224, 192, 224, -224, -224, -224, -224, 256, 288, 256, 288, -288, -288, -288, -288, 320, 352, 320, 352, 82.3691, 352, -352, -288, -352, -288, -320, 320, -320, 320, 288, -256, 288, -256, -256, 256, -256, 256, 224, -192, 224, -192, -192, 192, -192, 192, 160, -128, 160, -128, -128, 128, -128, 128, 96, -64, 96, -64, -64, 64, -64, 64, 32)
+
+[node name="PointsAnimator" type="Node2D" parent="PoissonDiskSampler2D"]
+z_index = 1
+script = ExtResource("3_q6mj4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PoissonDiskSampler2D"]
+libraries = {
+"": SubResource("AnimationLibrary_h1cut")
+}
+autoplay = "loop"
+
+[node name="Camera2D" type="Camera2D" parent="."]

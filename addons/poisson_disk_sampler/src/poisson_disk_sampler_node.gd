@@ -14,41 +14,39 @@ var points: Array[Vector2]
 var generating = false
 var gen_thread: Thread
 
-var polygon: Polygon2D
+func _process(_delta):
+	pass
 
 func add_points():
-	var point_holder = Node2D.new()
-	point_holder.name = "PointHolder"
-	point_holder.position = polygon.position
-	add_child(point_holder)
-	point_holder.owner = owner
-	for p in points:
-		var point = point_res.instantiate()
-		point.position = p
-		point_holder.add_child(point)
-		point.owner = owner
+	var polygon = get_polygon()
+	if polygon != null:
+		for p in points:
+			var point = point_res.instantiate()
+			point.position = p
+			polygon.add_child(point)
+			point.owner = owner
 	generating = false
 
 func clear():
 	points = []
-	var point_holder = get_point_holder()
-	if point_holder != null:
-		remove_child(point_holder)
-		point_holder.free()
-		point_holder = null
+	var polygon = get_polygon()
+	if polygon != null:
+		for c in polygon.find_children("*", "Marker2D", false):
+			polygon.remove_child(c)
+			c.free()
 
 func generate():
 	if !generating:
-		if _is_valid():
+		var polygon = get_polygon()
+		if polygon != null:
 			generating = true
 			clear()
-			polygon = get_polygons()[0]
 			gen_thread = Thread.new()
-			gen_thread.start(_generate_thread)
-		else:
-			print_rich("[color=yellow]Cannot generate; Check warnings.[/color]")
+			gen_thread.start(_generate_thread.bind(polygon))
+	else:
+		print_rich("[color=yellow]Cannot generate; Check warnings.[/color]")
 
-func _generate_thread():
+func _generate_thread(polygon: Polygon2D):
 	print("Generate start.")
 	var gen_start: float = Time.get_unix_time_from_system()
 	var poisson_points = PoissonDiskSampler.generate_points(get_polygon_rect(polygon), min_dist, max_attempts, is_point_in_polygon.bind(polygon))
@@ -82,9 +80,18 @@ func get_polygon_rect(polygon: Polygon2D) -> Rect2:
 func get_polygons() -> Array:
 	return find_children("*", "Polygon2D", false)
 
-func get_point_holder() -> Node2D:
-	return find_child("PointHolder", false)
+func get_polygon() -> Polygon2D:
+	var polygons = get_polygons()
+	return null if polygons.is_empty() else polygons[0]
 
+func get_world_points():
+	var world_points = []
+	var polygon = get_polygon()
+	if polygon != null:
+		world_points = points.map(func(point): return polygon.to_global(point))
+	return world_points
+
+#region Node Inspector Stuff
 func _is_valid(warnings: PackedStringArray = []) -> bool:
 	var polygons = get_polygons()
 	if polygons.is_empty():
@@ -107,3 +114,4 @@ func _get_property_list():
 		}
 	]
 	return properties
+#endregion
