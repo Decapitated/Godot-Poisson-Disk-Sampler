@@ -3,7 +3,7 @@ A "Fast Poisson Disk Sampling" Godot plugin
 
 ![Poisson Animated Fill](https://github.com/Decapitated/Godot-Poisson-Disk-Sampler/blob/main/docs/PoissonFill-Rainbow.gif?raw=true)
 
-I created this after trying [udit's implementation](https://github.com/udit/poisson-disc-sampling). For whatever reason his didn't work for me. And this one aims to improve by abstracting the way points are validated.
+I created this after trying [udit's implementation](https://github.com/udit/poisson-disc-sampling). For whatever reason it didn't work for me, and wanted to try doing it myself. This one aims to improve by abstracting the way points are validated, as well as possibly adding more dimensions - as stated in Robert's paper.
 
 ## Usage
 How to generate points for different shapes:
