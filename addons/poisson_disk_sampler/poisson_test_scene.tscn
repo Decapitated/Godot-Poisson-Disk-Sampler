@@ -1,0 +1,322 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq44phmk77td4"]
+
+[ext_resource type="Script" path="res://addons/poisson_disk_sampler/src/poisson_disk_sampler_node.gd" id="1_ei2cw"]
+[ext_resource type="PackedScene" path="res://addons/poisson_disk_sampler/src/point.res" id="2_h8cyb"]
+
+[node name="PoissonTestScene" type="Node2D"]
+
+[node name="PoissonDiskSampler2D" type="Node2D" parent="." node_paths=PackedStringArray("point_holder")]
+script = ExtResource("1_ei2cw")
+points = Array[Vector2]([Vector2(668.83, 208.318), Vector2(766.346, 185.101), Vector2(663.171, 73.0704), Vector2(494.667, 205.977), Vector2(641.798, 345.508), Vector2(763.915, 315.686), Vector2(541.517, 98.395), Vector2(633.9, -24.1843), Vector2(785.995, -19.9795), Vector2(794.764, 79.8795), Vector2(494.158, -13.5349), Vector2(324.391, 189.247), Vector2(538.546, 392.799), Vector2(390.728, 355.47), Vector2(401.347, 99.2345), Vector2(631.159, 479.467), Vector2(727.344, 443.639), Vector2(667.428, -119.93), Vector2(212.124, 200.463), Vector2(227.879, 88.5695), Vector2(204.716, 315.44), Vector2(326.921, 18.7668), Vector2(947.929, 51.9669), Vector2(885.287, 152.215), Vector2(331.256, -81.7916), Vector2(210.603, -59.5947), Vector2(46.3049, 107.037), Vector2(123.312, 25.9239), Vector2(35.7562, 227.989), Vector2(102.487, 316.183), Vector2(119.431, 443.786), Vector2(-87.7883, 326.186), Vector2(13.5869, 417.935), Vector2(-70.2409, 22.6597), Vector2(899.838, -101.231), Vector2(289.482, 418.846), Vector2(444.387, -148.892), Vector2(1065.56, 123.075), Vector2(1031.61, 234.025), Vector2(933.202, 329.364), Vector2(-164.569, 94.8535), Vector2(15.0123, -45.0449), Vector2(-131.025, 208.624), Vector2(-54.3591, 136.188), Vector2(114.255, -95.2294), Vector2(558.438, -117.728), Vector2(-255.269, 322.863), Vector2(-250.448, 196.018), Vector2(795.297, 533.36), Vector2(633.571, 626.659), Vector2(533.903, 591.163), Vector2(505.492, 490.34), Vector2(856.464, 253.525), Vector2(966.201, 481.857), Vector2(874.894, 427.56), Vector2(1086.99, 373.577), Vector2(168.661, 578.488), Vector2(-23.1818, 582.601), Vector2(1014.9, -43.7244), Vector2(377.773, 524.981), Vector2(429.516, 671.095), Vector2(1103.37, 476.572), Vector2(1092.82, 583.73), Vector2(841.003, 625.859), Vector2(963.996, 609.21), Vector2(530.937, 730.45), Vector2(714.876, 791.044), Vector2(737.826, 646.826), Vector2(-167.845, 431.68), Vector2(-309.373, 432.341), Vector2(97.722, 653.054), Vector2(184.214, 742.971), Vector2(312.577, 652.391), Vector2(65.5824, 528.409), Vector2(-130.076, 556.579), Vector2(282.342, 831.124), Vector2(411.814, 821.837), Vector2(899.133, 748.162), Vector2(15.2746, 709.757), Vector2(261.521, 532.732), Vector2(-110.794, 708.916), Vector2(132.537, 859.24), Vector2(998.73, 722.115), Vector2(381.499, 932.27), Vector2(251.314, 984.595), Vector2(545.611, 925.138), Vector2(614.505, 794.532), Vector2(492.198, 1043.06), Vector2(16.3513, 856.062), Vector2(1200.23, 514.369), Vector2(719.141, 990.138), Vector2(771.255, 904.646), Vector2(877.529, 862.358), Vector2(-244.773, 518.731), Vector2(615.499, 1064.13), Vector2(1127.31, 829.72), Vector2(1151.99, 717.288), Vector2(1021.38, 880.337), Vector2(1068.73, 993.797), Vector2(933.08, 1052.85), Vector2(829.627, 1016.37), Vector2(138.374, 972.13)])
+point_holder = NodePath("PointHolder")
+
+[node name="Polygon2D" type="Polygon2D" parent="PoissonDiskSampler2D"]
+polygon = PackedVector2Array(-89, -41, 329, -161, 1043, -91, 1216, 527, 1041, 1125, 84, 995, -367, 357)
+
+[node name="PointHolder" type="Node2D" parent="PoissonDiskSampler2D"]
+
+[node name="Point" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(668.495, 208.318)
+
+[node name="@Marker2D@37924" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(766.346, 185.101)
+
+[node name="@Marker2D@37925" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(663.171, 73.0704)
+
+[node name="@Marker2D@37926" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(494.667, 205.977)
+
+[node name="@Marker2D@37927" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(641.798, 345.508)
+
+[node name="@Marker2D@37928" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(763.915, 315.686)
+
+[node name="@Marker2D@37929" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(541.517, 98.395)
+
+[node name="@Marker2D@37930" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(633.9, -24.1843)
+
+[node name="@Marker2D@37931" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(785.995, -19.9795)
+
+[node name="@Marker2D@37932" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(794.764, 79.8795)
+
+[node name="@Marker2D@37933" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(494.158, -13.5349)
+
+[node name="@Marker2D@37934" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(324.391, 189.247)
+
+[node name="@Marker2D@37935" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(538.546, 392.799)
+
+[node name="@Marker2D@37936" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(390.728, 355.47)
+
+[node name="@Marker2D@37937" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(401.347, 99.2345)
+
+[node name="@Marker2D@37938" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(631.159, 479.467)
+
+[node name="@Marker2D@37939" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(727.344, 443.639)
+
+[node name="@Marker2D@37940" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(667.428, -119.93)
+
+[node name="@Marker2D@37941" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(212.124, 200.463)
+
+[node name="@Marker2D@37942" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(227.879, 88.5695)
+
+[node name="@Marker2D@37943" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(204.716, 315.44)
+
+[node name="@Marker2D@37944" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(326.921, 18.7668)
+
+[node name="@Marker2D@37945" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(947.929, 51.9669)
+
+[node name="@Marker2D@37946" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(885.287, 152.215)
+
+[node name="@Marker2D@37947" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(331.256, -81.7916)
+
+[node name="@Marker2D@37948" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(210.603, -59.5947)
+
+[node name="@Marker2D@37949" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(46.3049, 107.037)
+
+[node name="@Marker2D@37950" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(123.312, 25.9239)
+
+[node name="@Marker2D@37951" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(35.7562, 227.989)
+
+[node name="@Marker2D@37952" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(102.487, 316.183)
+
+[node name="@Marker2D@37953" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(119.431, 443.786)
+
+[node name="@Marker2D@37954" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-87.7883, 326.186)
+
+[node name="@Marker2D@37955" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(13.5869, 417.935)
+
+[node name="@Marker2D@37956" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-70.2409, 22.6597)
+
+[node name="@Marker2D@37957" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(899.838, -101.231)
+
+[node name="@Marker2D@37958" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(289.482, 418.846)
+
+[node name="@Marker2D@37959" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(444.387, -148.892)
+
+[node name="@Marker2D@37960" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1065.56, 123.075)
+
+[node name="@Marker2D@37961" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1031.61, 234.025)
+
+[node name="@Marker2D@37962" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(933.202, 329.364)
+
+[node name="@Marker2D@37963" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-164.569, 94.8535)
+
+[node name="@Marker2D@37964" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(15.0123, -45.0449)
+
+[node name="@Marker2D@37965" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-131.025, 208.624)
+
+[node name="@Marker2D@37966" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-54.3591, 136.188)
+
+[node name="@Marker2D@37967" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(114.255, -95.2294)
+
+[node name="@Marker2D@37968" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(558.438, -117.728)
+
+[node name="@Marker2D@37969" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-255.269, 322.863)
+
+[node name="@Marker2D@37970" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-250.448, 196.018)
+
+[node name="@Marker2D@37971" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(795.297, 533.36)
+
+[node name="@Marker2D@37972" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(633.571, 626.659)
+
+[node name="@Marker2D@37973" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(533.903, 591.163)
+
+[node name="@Marker2D@37974" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(505.492, 490.34)
+
+[node name="@Marker2D@37975" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(856.464, 253.525)
+
+[node name="@Marker2D@37976" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(966.201, 481.857)
+
+[node name="@Marker2D@37977" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(874.894, 427.56)
+
+[node name="@Marker2D@37978" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1086.99, 373.577)
+
+[node name="@Marker2D@37979" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(168.661, 578.488)
+
+[node name="@Marker2D@37980" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-23.1818, 582.601)
+
+[node name="@Marker2D@37981" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1014.9, -43.7244)
+
+[node name="@Marker2D@37982" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(377.773, 524.981)
+
+[node name="@Marker2D@37983" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(429.516, 671.095)
+
+[node name="@Marker2D@37984" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1103.37, 476.572)
+
+[node name="@Marker2D@37985" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1092.82, 583.73)
+
+[node name="@Marker2D@37986" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(841.003, 625.859)
+
+[node name="@Marker2D@37987" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(963.996, 609.21)
+
+[node name="@Marker2D@37988" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(530.937, 730.45)
+
+[node name="@Marker2D@37989" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(714.876, 791.044)
+
+[node name="@Marker2D@37990" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(737.826, 646.826)
+
+[node name="@Marker2D@37991" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-167.845, 431.68)
+
+[node name="@Marker2D@37992" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-309.373, 432.341)
+
+[node name="@Marker2D@37993" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(97.722, 653.054)
+
+[node name="@Marker2D@37994" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(184.214, 742.971)
+
+[node name="@Marker2D@37995" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(312.577, 652.391)
+
+[node name="@Marker2D@37996" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(65.5824, 528.409)
+
+[node name="@Marker2D@37997" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-130.076, 556.579)
+
+[node name="@Marker2D@37998" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(282.342, 831.124)
+
+[node name="@Marker2D@37999" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(411.814, 821.837)
+
+[node name="@Marker2D@38000" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(899.133, 748.162)
+
+[node name="@Marker2D@38001" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(15.2746, 709.757)
+
+[node name="@Marker2D@38002" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(261.521, 532.732)
+
+[node name="@Marker2D@38003" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-110.794, 708.916)
+
+[node name="@Marker2D@38004" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(132.537, 859.24)
+
+[node name="@Marker2D@38005" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(998.73, 722.115)
+
+[node name="@Marker2D@38006" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(381.499, 932.27)
+
+[node name="@Marker2D@38007" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(251.314, 984.595)
+
+[node name="@Marker2D@38008" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(545.611, 925.138)
+
+[node name="@Marker2D@38009" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(614.505, 794.532)
+
+[node name="@Marker2D@38010" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(492.198, 1043.06)
+
+[node name="@Marker2D@38011" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(16.3513, 856.062)
+
+[node name="@Marker2D@38012" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1200.23, 514.369)
+
+[node name="@Marker2D@38013" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(719.141, 990.138)
+
+[node name="@Marker2D@38014" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(771.255, 904.646)
+
+[node name="@Marker2D@38015" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(877.529, 862.358)
+
+[node name="@Marker2D@38016" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(-244.773, 518.731)
+
+[node name="@Marker2D@38017" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(615.499, 1064.13)
+
+[node name="@Marker2D@38018" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1127.31, 829.72)
+
+[node name="@Marker2D@38019" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1151.99, 717.288)
+
+[node name="@Marker2D@38020" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1021.38, 880.337)
+
+[node name="@Marker2D@38021" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(1068.73, 993.797)
+
+[node name="@Marker2D@38022" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(933.08, 1052.85)
+
+[node name="@Marker2D@38023" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(829.627, 1016.37)
+
+[node name="@Marker2D@38024" type="Marker2D" parent="PoissonDiskSampler2D/PointHolder" instance=ExtResource("2_h8cyb")]
+position = Vector2(138.374, 972.13)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfqerxosvq5sq"
-path="res://.godot/imported/poisson.png-65913dc0a720ba254a6c2d1d7ed13ed0.ctex"
+path="res://.godot/imported/poisson.png-7507a456ca54ec66ca706560580f6b12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/poisson_disk_sampling/poisson.png"
-dest_files=["res://.godot/imported/poisson.png-65913dc0a720ba254a6c2d1d7ed13ed0.ctex"]
+source_file="res://addons/poisson_disk_sampler/poisson.png"
+dest_files=["res://.godot/imported/poisson.png-7507a456ca54ec66ca706560580f6b12.ctex"]
 
 [params]
 
