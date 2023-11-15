@@ -16,7 +16,7 @@ var poisson_points = PoissonDiskSampler.generate_points(
         _is_point_in_polygon.bind(polygon))
 
 func _is_point_in_polygon(point: Vector2, polygon: Polygon2D) -> bool:
-	return Geometry2D.is_point_in_polygon(point, polygon.polygon)
+    return Geometry2D.is_point_in_polygon(point, polygon.polygon)
 ```
 ### Circle
 ```GDScript
