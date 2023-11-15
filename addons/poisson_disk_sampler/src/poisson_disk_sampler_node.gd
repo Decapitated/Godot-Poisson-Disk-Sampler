@@ -62,20 +62,24 @@ func _on_gen_done():
 func is_point_in_polygon(point: Vector2, polygon: Polygon2D) -> bool:
 	return Geometry2D.is_point_in_polygon(point, polygon.polygon)
 
-func get_polygon_rect(polygon: Polygon2D) -> Rect2:
-	var min: Vector2 = Vector2(INF, INF)
-	var max: Vector2 = Vector2(-INF, -INF)
-	for point in polygon.polygon:
-		if point.x < min.x:
-			min.x = point.x
-		if point.x > max.x:
-			max.x = point.x
-		if point.y < min.y:
-			min.y = point.y
-		if point.y > max.y:
-			max.y = point.y
+func _is_point_in_polygon(point: Vector2, rect: Rect2) -> bool:
+	var radius = rect.size.x / 2.0
+	return point.distance_squared_to(rect.size / 2.0) <= radius * radius
 
-	return Rect2(min, max - min)
+func get_polygon_rect(polygon: Polygon2D) -> Rect2:
+	var _min: Vector2 = Vector2(INF, INF)
+	var _max: Vector2 = Vector2(-INF, -INF)
+	for point in polygon.polygon:
+		if point.x < _min.x:
+			_min.x = point.x
+		if point.x > _max.x:
+			_max.x = point.x
+		if point.y < _min.y:
+			_min.y = point.y
+		if point.y > _max.y:
+			_max.y = point.y
+
+	return Rect2(_min, _max - _min)
 
 func get_polygons() -> Array:
 	return find_children("*", "Polygon2D", false)
