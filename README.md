@@ -27,7 +27,7 @@ var poisson_points = PoissonDiskSampler.generate_points(
         max_attempts,
         _is_point_in_circle.bind(circle_rect))
 
-func _is_point_in_polygon(point: Vector2, rect: Rect2) -> bool:
+func _is_point_in_circle(point: Vector2, rect: Rect2) -> bool:
     var radius = rect.size.x / 2.0
     return point.distance_squared_to(rect.size / 2.0) <= radius * radius
 ```
