@@ -1,8 +1,10 @@
 # Poisson Disk Sampler
 A "Fast Poisson Disk Sampling" Godot plugin
 
-![Poisson Animated Fill](https://github.com/Decapitated/Godot-Poisson-Disk-Sampler/blob/main/docs/PoissonFill-Rainbow.gif?raw=true)
-
+<img src="https://github.com/Decapitated/Godot-Poisson-Disk-Sampler/blob/main/docs/PoissonFill-Rainbow.gif?raw=true" height="250" alt="Poisson Animated Fill">
+<img src="https://github.com/Decapitated/Godot-Poisson-Disk-Sampler/blob/main/docs/PoissonSampler2D_Inspector.png?raw=true" height="250" alt="PoissonDiskSampler2D Custom Inspector">
+<img src="https://github.com/Decapitated/Godot-Poisson-Disk-Sampler/blob/main/docs/PoissonSampler2D_Scene.png?raw=true" height="250" alt="PoissonDiskSampler2D Example Scene">
+<hr>
 I created this after trying [udit's implementation](https://github.com/udit/poisson-disc-sampling). For whatever reason it didn't work for me, and wanted to try doing it myself. This one aims to improve by abstracting the way points are validated, as well as possibly adding more dimensions - as stated in Robert's paper.
 
 ## Usage
