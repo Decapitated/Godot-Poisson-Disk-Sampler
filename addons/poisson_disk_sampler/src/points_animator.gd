@@ -29,6 +29,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var i = 0
-	for c in get_children():
+	for c in find_children("*", "Sprite2D", false):
 		(c as Sprite2D).visible = i <= int((point_sampler.points.size() - 1) * index_scaled)
 		i += 1

@@ -15,7 +15,11 @@ var generating = false
 var gen_thread: Thread
 
 func _process(_delta):
-	pass
+	var polygon: Polygon2D = get_polygon()
+	var polygon_rect = get_polygon_rect(polygon)
+	var cell_size = PoissonDiskSampler.get_real_cell_size(min_dist, polygon_rect)
+	(polygon.material as ShaderMaterial).set_shader_parameter("cell_size", cell_size)
+	(polygon.material as ShaderMaterial).set_shader_parameter("offset", polygon_rect.end - polygon_rect.size / 2.0)
 
 func add_points():
 	var polygon = get_polygon()

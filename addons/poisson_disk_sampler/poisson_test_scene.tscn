@@ -1,7 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsluywjbs8oa"]
+[gd_scene load_steps=11 format=3 uid="uid://dsluywjbs8oa"]
 
 [ext_resource type="Script" path="res://addons/poisson_disk_sampler/src/poisson_disk_sampler_node.gd" id="1_ei2cw"]
+[ext_resource type="Shader" path="res://addons/poisson_disk_sampler/grid.gdshader" id="2_lmfuc"]
+[ext_resource type="Script" path="res://editor_tools/cell_index.gd" id="3_336ue"]
+[ext_resource type="Script" path="res://editor_tools/follow_mouse.gd" id="3_i6u3e"]
 [ext_resource type="Script" path="res://addons/poisson_disk_sampler/src/points_animator.gd" id="3_q6mj4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hg121"]
+shader = ExtResource("2_lmfuc")
+shader_parameter/offset = Vector2(32, -16)
+shader_parameter/cell_size = Vector2(21.3333, 21.6774)
 
 [sub_resource type="Animation" id="Animation_nrp3y"]
 length = 0.001
@@ -63,20 +71,42 @@ _data = {
 
 [node name="PoissonDiskSampler2D" type="Node2D" parent="."]
 script = ExtResource("1_ei2cw")
-min_dist = 10.0
+min_dist = 30.0
 points = Array[Vector2]([])
 
 [node name="Polygon2D" type="Polygon2D" parent="PoissonDiskSampler2D"]
+material = SubResource("ShaderMaterial_hg121")
 polygon = PackedVector2Array(0, 32, 0, 0, 32, 0, 32, -32, -32, -32, -32, 64, 96, 64, 96, -96, -96, -96, -96, 128, 160, 128, 160, -160, -160, -160, -160, 192, 224, 192, 224, -224, -224, -224, -224, 256, 288, 256, 288, -288, -288, -288, -288, 320, 352, 320, 352, 82.3691, 352, -352, -288, -352, -288, -320, 320, -320, 320, 288, -256, 288, -256, -256, 256, -256, 256, 224, -192, 224, -192, -192, 192, -192, 192, 160, -128, 160, -128, -128, 128, -128, 128, 96, -64, 96, -64, -64, 64, -64, 64, 32)
 
 [node name="PointsAnimator" type="Node2D" parent="PoissonDiskSampler2D"]
 z_index = 1
 script = ExtResource("3_q6mj4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PoissonDiskSampler2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PoissonDiskSampler2D/PointsAnimator"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_h1cut")
 }
 autoplay = "loop"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CellIndex" type="Node2D" parent="."]
+position = Vector2(-273.734, -228.454)
+
+[node name="Label" type="Label" parent="CellIndex" node_paths=PackedStringArray("poisson_sampler")]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 91.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+text = "Cell - (-15.000000, -10.000000)"
+script = ExtResource("3_336ue")
+poisson_sampler = NodePath("../../PoissonDiskSampler2D")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+position = Vector2(-273.734, -228.454)
+remote_path = NodePath("../CellIndex")
+script = ExtResource("3_i6u3e")
